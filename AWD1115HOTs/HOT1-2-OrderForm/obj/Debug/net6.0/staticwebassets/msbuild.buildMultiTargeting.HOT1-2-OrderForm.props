@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\HOT1-2-OrderForm.props" />
+</Project>

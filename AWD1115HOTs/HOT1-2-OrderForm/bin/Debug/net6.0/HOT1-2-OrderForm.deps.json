@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "HOT1-2-OrderForm/1.0.0": {
+        "runtime": {
+          "HOT1-2-OrderForm.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "HOT1-2-OrderForm/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

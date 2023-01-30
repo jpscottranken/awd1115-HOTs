@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\HOT1-DistanceConverter.props" />
+</Project>

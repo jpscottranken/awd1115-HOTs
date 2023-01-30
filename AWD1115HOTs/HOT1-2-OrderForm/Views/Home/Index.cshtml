@@ -1,0 +1,132 @@
+﻿@*
+    Create a program for ordering T-Shirts.
+        ❏	Users must enter a quantity.
+
+        ❏	Users can enter an optional discount code.
+
+        ❏	Shirts are normally $15 each. Sales tax is 8%.
+
+        ❏	If the discount code is valid, then apply the 
+            relevant discount.
+
+        ❏	If the discount code is not valid, then display 
+            an error message and calculate the receipt without
+            a discount.
+
+        Discount Code	Discount Percentage
+        ===================================
+            6175	        30% off
+            1390	        20% off
+            BB88	        10% off
+
+            ❏	Model class created and used _____ / 12pts
+
+            ❏	Model class named OrderForm
+
+            ❏	Model class has properties Quantity, DiscountCode,
+                DiscountMessage, PricePerShirt, Subtotal, Tax, and Total
+
+            ❏	Quantity has the [Required] attribute and ErrorMessage 
+                is customized
+
+            ❏	Controller class created and implemented _____ / 18pts
+
+            ❏	Controller class named OrderFormController
+
+            ❏	Action method(s) named Index
+
+            ❏	[HttpGet] and [HttpPost] attributes applied to 
+                action methods
+
+            ❏	POST action method calculates the subtotal, tax, 
+                and total correctly.
+
+            ❏	POST action method applies a valid discount code 
+                correctly to the shirt cost.
+
+            ❏	POST action method calculates the subtotal, tax, and 
+                total correctly even if a valid discount code is not 
+                provided.
+
+            ❏	View laid out as shown in the mockup _____ / 8pts
+
+            ❏	Title and subtitle
+
+            ❏	Labels, Inputs, and Error Messages
+
+            ❏	Button
+
+            ❏	Output
+
+            ❏	Output formatted as described _____ / 2pts
+
+            ❏	Monetary amounts are formatted as currency
+
+            ❏	Output looks like a receipt
+
+            ❏	Output has a thin black border
+
+            ❏	Output has a white background with black text
+
+            ❏	Output has a monospaced font
+
+            ❏	Latest version of Bootstrap used to style 
+                the page _____ / 10pts
+
+            ❏	Bootstrap stylesheet included via CDN
+
+            ❏	<h1> tag used for page header
+
+            ❏	form-group used to group labels, input boxes, 
+                and error messages
+
+            ❏	form-control class applied to input boxes
+
+            ❏	text-danger class applied to error messages
+
+            ❏	btn and btn-primary classes applied to button
+
+            ❏	margins applied to make the form look professional 
+*@
+
+@model OrderForm
+@{
+    @*ViewBag.Title = "";*@
+}
+
+<div class="form-group row">
+    <form asp-action="Index" method="post">
+        <div class="mt-3 mb-3">
+            <label asp-for="Quantity">Quantity</label>
+            <div class="col-xs-2">
+                <input class="form-control mt-2 mb-2" asp-for="Quantity" />
+            </div>
+            <span class="col-sm text-danger mt-2 mb-2" asp-validation-for="Quantity"></span><br />
+            <label asp-for="DiscountCode">Discount Code</label>
+            <div class="col-xs-2">
+                <input class="form-control mt-2 mb-2" asp-for="DiscountCode" />
+            </div>
+            <span class="col-sm text-danger mt-2 mb-2" asp-validation-for="DiscountCode"></span>
+            <div>
+                <button class="btn btn-primary" type="submit">Order</button>
+            </div>
+        </div>
+        <div class="mt-3">
+        <div class="row form-group">
+            <label class="col-sm-3">@ViewBag.Quantity T-Shirts @@ </label>
+            <label class="col-sm-4">@ViewBag.PricePerShirt.ToString("c2")</label>
+        </div>
+        <div class="row form-group">
+            <label class="col-sm-3">Subtotal: </label>
+            <label class="col-sm-4">@ViewBag.Subtotal.ToString("c2")</label>
+        </div>
+        <div class="row form-group">
+            <label class="col-sm-3">Tax: </label>
+            <label class="col-sm-4">@ViewBag.Tax.ToString("c2")</label>
+        </div>
+        <div class="row form-group">
+            <label class="col-sm-3">Total: </label>
+            <label class="col-sm-4">@ViewBag.Total.ToString("c")</label>
+        </div>
+    </form>
+</div>

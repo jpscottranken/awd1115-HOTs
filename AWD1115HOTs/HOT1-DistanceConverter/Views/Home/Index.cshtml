@@ -1,0 +1,95 @@
+﻿@*
+    Write a program that converts distances between inches and centimeters;
+        ❏	The program must contain a constant named CM_PER_IN 
+            which holds the  number of inches per centimeter
+            (2.54 cm per inch).
+
+        ❏	Prompt the user for a distance in inches.
+
+        ❏	When the user submits the form, display the distance 
+            in both inches and centimeters as follows: 
+
+            "2.00 inches is 5.08 centimeters"
+
+        Rubric:
+        -------
+        ❏	Model class created and used _____ / 12pts
+
+        ❏	Model class named DistanceConverterModel
+
+        ❏	Model class has properties DistanceInInches 
+            and DistanceInCentimeters
+
+        ❏	Add the Distance as a required field, with a custom 
+            validation message, that must be between 1 and 500.
+    
+        ❏	Controller class created and implemented _____ / 18pts
+
+        ❏	Controller class named DistanceConverterController
+
+        ❏	Action method(s) named Index
+
+        ❏	[HttpGet] and [HttpPost] attributes applied to action 
+            methods
+
+        ❏	POST action method checks if the model is valid before 
+            performing conversions
+
+        ❏	POST action method performs the conversion correctly
+
+        ❏	Constant named CM_PER_IN defined and used
+
+        ❏	View laid out as shown in the mockup _____ / 8pts
+
+        ❏	Title
+
+        ❏	Labels, Inputs, and Error Messages
+
+        ❏	Button
+
+        ❏	Output
+
+        ❏	Output formatted as described _____ / 2pts
+
+        ❏	Inches and Centimeters are formatted with two decimal 
+            places in the View
+
+        ❏	Latest version of Bootstrap used to style the page _____ / 10pts
+
+        ❏	Bootstrap stylesheet included via CDN
+
+        ❏	<h1> tag used for page header
+
+        ❏	form-group used to group labels, input boxes, and error messages
+
+        ❏	form-control class applied to input boxes
+
+        ❏	text-danger class applied to error messages
+
+        ❏	btn and btn-primary classes applied to button
+
+        ❏	margins applied to make the form look professionaL
+*@
+
+@model DistanceConverterModel
+@{
+    ViewBag.Title = "Distance Converter";
+}
+
+<div class="form-group row">
+    <form asp-action="Index" method="post">
+        <div class="mt-3 mb-3">
+            <label asp-for="Distance">Distance in inches</label>
+            <div class="col-xs-2">
+                <input class="form-control mt-2 mb-2" asp-for="Distance" />
+            </div>
+            <span class="col-sm text-danger mt-2 mb-2" asp-validation-for="Distance"></span>
+            <div>
+                <button class="btn btn-primary" type="submit">Convert to cm</button>
+            </div>
+        </div>
+        <div class="mt-3">
+            <label><strong>@ViewBag.Inches.ToString("0.00") inches is @ViewBag.Centimeters.ToString("0.00") centimeters</strong></label>
+        </div>
+    </form>
+</div>
